@@ -1,3 +1,21 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-tomato: #FEC800;
+  --color-leaf: #FEC800;
+  --color-onyx: #0f0f0f;
+  --color-whiteish: #E3E3E3;
+  --font-russo: "Russo One", sans-serif; 
+}
+
+@font-face {
+  font-family: 'Russo One';
+  src: url(/fonts/RussoOne-Regular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
