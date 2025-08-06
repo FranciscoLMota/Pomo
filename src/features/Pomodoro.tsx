@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react';
+import useSound from 'use-sound';
+import boopSfx from '../assets/beep.mp3'; // Import your sound file
+
 
 export function Pomodoro() {
+    const [play] = useSound(boopSfx);
     const configutedTime: number = 1500 // 1500 Seconds = 25 minutes 
-    const [timeLeft, setTimeLeft] = useState(configutedTime); 
+    const [timeLeft, setTimeLeft] = useState(configutedTime);
     const [isRunning, setIsRunning] = useState(false);
     const [mode, setMode] = useState('focus');
 
@@ -19,6 +23,7 @@ export function Pomodoro() {
                 setTimeLeft(prevTime => prevTime - 1);
             }, 1000);
         } else if (timeLeft === 0) {
+            play();
             clearInterval(interval);
             setIsRunning(false);
             setTimeLeft(configutedTime); // Reset to focus time
@@ -34,9 +39,11 @@ export function Pomodoro() {
     useEffect(() => {
         const container = document.getElementById('container');
         if (!container) return;
+
         container.classList.remove('bg-leaf');
         container.classList.remove('bg-onyx');
         container.classList.remove('bg-tomato');
+
         if (isRunning && mode == "focus") {
 
             //If in focus mode, changes the background to red
@@ -70,7 +77,6 @@ export function Pomodoro() {
     const handleReset = () => {
         setIsRunning(false);
         setTimeLeft(configutedTime); // Reset to focus time
-        setMode('focus');
     };
 
 
