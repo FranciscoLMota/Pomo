@@ -4,8 +4,8 @@ import boopSfx from '../assets/beep.mp3'; // Import your sound file
 
 
 export function Pomodoro() {
-    const [play] = useSound(boopSfx);
-    const configutedTime: number = 1500 // 1500 Seconds = 25 minutes 
+    const [playBeep] = useSound(boopSfx);
+    const configutedTime: number = 300 // 1500 Seconds = 25 minutes 
     const [timeLeft, setTimeLeft] = useState(configutedTime);
     const [isRunning, setIsRunning] = useState(false);
     const [mode, setMode] = useState('focus');
@@ -23,7 +23,7 @@ export function Pomodoro() {
                 setTimeLeft(prevTime => prevTime - 1);
             }, 1000);
         } else if (timeLeft === 0) {
-            play();
+            playBeep();
             clearInterval(interval);
             setIsRunning(false);
             setTimeLeft(configutedTime); // Reset to focus time
@@ -87,8 +87,8 @@ export function Pomodoro() {
 
                 <div className="container flex items-center justify-center text-whiteish m-auto mt-16 max-w-8xl px-4 sm:px-6 lg:px-8 py-12 text-center pt-0">
                     <div className="grid grid-flow-col grid-rows-2 gap-4">
-                        <div className="col-span-2">
-                            <p className="font-russo max-w-sm text-6xl md:text-9xl border-10 md:border-12 border-whiteish p-3">
+                        <div className="col-span-2 border-10 md:border-12">
+                            <p className="font-russo max-w-sm text-6xl md:text-9xl  border-whiteish p-3">
                                 {formatTime(timeLeft)}
                             </p>
                         </div>

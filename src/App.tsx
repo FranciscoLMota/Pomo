@@ -5,15 +5,10 @@ import { Pomodoro } from './features/Pomodoro'
 function App() {
 
   return (
-    <>
-      <div className="bg-onyx transition-all duration-500 font-russo h-screen" id="container">
-        <Navbar />
-        <Pomodoro />
-      
-      </div>
-
-
-    </>
+    <div className="bg-onyx transition-all duration-500 font-russo h-screen" id="container">
+      <Navbar />
+      <Pomodoro />
+    </div>
   )
 }
 
