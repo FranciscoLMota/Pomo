@@ -1,9 +1,6 @@
-import { useState } from "react";
 import tomatoLogo from '../assets/tomato.svg'
 
 export function Navbar() {
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <>
