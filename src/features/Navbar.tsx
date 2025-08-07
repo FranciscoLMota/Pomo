@@ -12,7 +12,7 @@ export function Navbar() {
                 <img src={tomatoLogo} className="h-25 w-25" alt="Vite logo" />
                 <ul className="md:flex px-4 mx-auto font-semibold font-heading space-x-12"></ul>
                 <ul className="xl:flex my-0  space-x-3 align-top pt-0">
-                  <p className='font-russo text-5xl text-whiteish align-top pt-0 pr-5' id='statusText'>POMO</p>
+                  <p className='font-russo text-5xl text-whiteish align-top pt-0 ' id='statusText'>POMO</p>
                 </ul>
               </div>
             </nav>

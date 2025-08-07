@@ -101,7 +101,7 @@ export function Pomodoro() {
             <div className="container flex items-center justify-center text-whiteish m-auto mt-16 max-w-8xl px-4 sm:px-6 lg:px-8 py-12 text-center pt-0">
                 <div className="grid grid-flow-col grid-rows-2 gap-4">
                     <div className="col-span-2 border-10 md:border-12">
-                        <p className="font-russo max-w-sm text-6xl md:text-9xl  border-whiteish p-3">
+                        <p className="font-russo max-w-sm text-8xl md:text-9xl  border-whiteish p-3">
                             {formatTime(timeLeft)}
                         </p>
                     </div>
