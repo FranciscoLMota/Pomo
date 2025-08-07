@@ -1,9 +1,8 @@
 @import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-tomato: #FEC800;
-  --color-leaf: #FEC800;
+  --color-tomato: #EE4848;
+  --color-leaf: #00AE82;
   --color-onyx: #0f0f0f;
   --color-whiteish: #E3E3E3;
   --font-russo: "Russo One", sans-serif; 
@@ -16,45 +15,10 @@
   font-style: normal;
 }
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root {
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.dark {
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
