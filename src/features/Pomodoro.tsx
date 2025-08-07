@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react';
 import useSound from 'use-sound';
 import boopSfx from '../assets/beep.mp3'; // Import your sound file
+import { Config } from './Config'
 
 
 export function Pomodoro() {
     const [playBeep] = useSound(boopSfx);
-    const configutedTime: number = 1500 // 1500 Seconds = 25 minutes 
-    const configutedRelaxTime: number = 300 // 300 Seconds = 5 minutes 
-    const [timeLeft, setTimeLeft] = useState(configutedTime);
+    const [configuredTime, setConfiguredTime] = useState(1500) // 1500 Seconds = 25 minutes 
+    const [configuredRelaxTime, setConfiguredRelaxTime] = useState(300) // 300 Seconds = 5 minutes 
+    const [timeLeft, setTimeLeft] = useState(configuredTime);
     const [isRunning, setIsRunning] = useState(false);
     const [mode, setMode] = useState('focus');
-
-    //TODO: Configuration for sections times for focus and break times
 
     //TODO: Add Notification when its done
 
@@ -31,10 +30,10 @@ export function Pomodoro() {
 
             if (mode == "focus") {
                 setMode('relax');
-                setTimeLeft(configutedRelaxTime); // Reset to relax time
+                setTimeLeft(configuredRelaxTime); // Reset to relax time
             } else {
                 setMode('focus');
-                setTimeLeft(configutedTime); // Reset to focus time
+                setTimeLeft(configuredTime); // Reset to focus time
             }
         }
         return () => clearInterval(interval);
@@ -86,11 +85,11 @@ export function Pomodoro() {
 
     const handleReset = () => {
         setIsRunning(false);
-        setTimeLeft(configutedTime); // Reset to focus time
+        setTimeLeft(configuredTime); // Reset to focus time
         if (mode == "focus") {
-            setTimeLeft(configutedTime); // Reset to focus time
+            setTimeLeft(configuredTime); // Reset to focus time
         } else {
-            setTimeLeft(configutedRelaxTime); // Reset to relax time
+            setTimeLeft(configuredRelaxTime); // Reset to relax time
         }
     };
 
@@ -108,6 +107,12 @@ export function Pomodoro() {
                     <div onClick={handleStartPause} className="text-left text-xl">{isRunning ? 'PAUSE' : 'START'}</div>
                     <div onClick={handleReset} className="text-right text-xl">RESET</div>
                 </div>
+                <Config 
+                    configuredTime={configuredTime}
+                    setConfiguredTime={setConfiguredTime}
+                    configuredRelaxTime={configuredRelaxTime}
+                    setConfiguredRelaxTime={setConfiguredRelaxTime}
+                    />
             </div>
         </>
     );
