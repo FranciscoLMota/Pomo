@@ -12,8 +12,6 @@ export function Pomodoro() {
     const [isRunning, setIsRunning] = useState(false);
     const [mode, setMode] = useState('focus');
 
-    //TODO: Configuration for sections times for focus and break times
-
     //TODO: Add Notification when its done
 
     useEffect(() => {
