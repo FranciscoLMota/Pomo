@@ -12,7 +12,7 @@ export function Pomodoro() {
     const [mode, setMode] = useState('focus');
 
     //TODO: Configuration for sections times for focus and break times
-    //TODO: Add Sound queue when its done
+
     //TODO: Add Notification when its done
 
     useEffect(() => {
@@ -24,6 +24,7 @@ export function Pomodoro() {
                 setTimeLeft(prevTime => prevTime - 1);
             }, 1000);
         } else if (timeLeft === 0) {
+            // Play sound queue when its done
             playBeep();
             clearInterval(interval);
             setIsRunning(false);
