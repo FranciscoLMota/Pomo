@@ -5,7 +5,7 @@ import { Pomodoro } from './features/Pomodoro'
 function App() {
 
   return (
-    <div className="bg-onyx transition-all duration-500 font-russo h-screen" id="container">
+    <div className="bg-onyx transition-all duration-500 font-russo flex flex-col h-screen" id="container">
       <Navbar />
       <Pomodoro />
     </div>
