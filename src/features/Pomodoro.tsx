@@ -18,6 +18,8 @@ export function Pomodoro() {
         let interval: ReturnType<typeof setInterval>;
         if (isRunning && timeLeft > 0) {
 
+            document.title = formatTime(timeLeft) + " - " + (mode.charAt(0).toUpperCase()
+  + mode.slice(1)) + " | POMO"; 
             //Reduces the time left by a second every second
             interval = setInterval(() => {
                 setTimeLeft(prevTime => prevTime - 1);
@@ -66,6 +68,7 @@ export function Pomodoro() {
 
             //If paused, changes back to black
             statusText.textContent = "POMO";
+            document.title = "POMO | A Pomodoromo Timer"; 
             container.classList.add('bg-onyx');
 
         }
